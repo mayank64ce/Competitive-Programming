@@ -12,20 +12,20 @@ struct union_find {
 		}
 	}
 // find and union
+	int find(int x) {
+		if (parent[x] == x) {
+			return x;
+		} else {
+			parent[x] = find(parent[x]);
+			return parent[x];
+		}
+	}
+	void unite(int x, int y) {
+		parent[find(x)] = find(y);
+	}
 };
 
-// find and union
-int find(int x) {
-	if (parent[x] == x) {
-		return x;
-	} else {
-		parent[x] = find(parent[x]);
-		return parent[x];
-	}
-}
-void unite(int x, int y) {
-	parent[find(x)] = find(y);
-}
+
 //Simple implementation End
 
 //When needed quickly Begin
